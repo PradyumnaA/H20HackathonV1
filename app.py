@@ -182,8 +182,8 @@ with tab1:
         st.plotly_chart(fig)
         tts = gTTS(text=result_text, lang=L["tts_lang"])
         tts.save("prediction.mp3")
-        audio_file = open("prediction.mp3", "rb")
-        st.audio(audio_file.read(), format="audio/mp3")
+        with open("prediction.mp3", "rb") as audio_file:
+            st.audio(audio_file.read(), format="audio/mp3")
 
 # === TAB 2: WATER USAGE & UPGRADES ===
 with tab2:
